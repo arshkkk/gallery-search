@@ -1,4 +1,7 @@
 To start the React app
+Add your Flicker Api Key <br/>
+`REACT_APP_FLICKER_API_KEY=********` in .env <br/><br/>
+
 `npm install` // installs the node_modules <br/>
 `npm start` // starts the app
 
