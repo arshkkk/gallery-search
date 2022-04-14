@@ -11,4 +11,5 @@ export interface PhotoResponse {
   perpage: number;
   photo: Array<PhotoType>;
   total: number;
+  message: string;
 }

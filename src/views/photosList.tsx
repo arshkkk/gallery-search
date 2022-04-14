@@ -62,7 +62,8 @@ export const PhotosList = () => {
         </a>
         `
       </p>
-      {state.isLoading && (
+      <h1 className={'text-lg font-bold'}>{state.photoResponse.message}</h1>
+      {state.isLoading && !state.photoResponse.message && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 animate-pulse duration-75">
           {Array(6)
             .fill(1)
@@ -72,7 +73,7 @@ export const PhotosList = () => {
         </div>
       )}
       {/*<pre>{JSON.stringify(photoResponse, null, 2)}</pre>*/}
-      {!state.isLoading && (
+      {!state.isLoading && !state.photoResponse.message && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
           {state.photoResponse.photo.map((_) => (
             <a

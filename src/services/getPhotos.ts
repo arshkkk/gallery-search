@@ -15,7 +15,8 @@ class _Flicker {
   // total: 123358
   async getPhotos(search: string = 'dogs'): Promise<PhotoResponse> {
     const {
-      data: {photos},
+      // @ts-ignore
+      data: {photos, message},
     }: {data: {photos: PhotoResponse}} = await axios.get(`/`, {
       params: {
         text: search,
@@ -26,7 +27,13 @@ class _Flicker {
       },
     });
 
-    console.log('data', photos);
+    console.log('message', message);
+
+    // Some error
+    if (message) {
+      // @ts-ignore
+      return {message};
+    }
     return {...photos, photo: photos.photo.map((_) => ({..._, url: this.getPhotoUrl(_)}))};
   }
 
@@ -41,7 +48,7 @@ class _Flicker {
       },
     });
 
-    if (data?.photo) return {...data?.photo, url: this.getPhotoUrl(data?.photo)};
+    if (data?.photo) return {...data?.photo, message: data?.message, url: this.getPhotoUrl(data?.photo)};
     return null;
   }
 }

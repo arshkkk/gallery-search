@@ -26,7 +26,7 @@ function reducer(state: AppState, action: any): AppState {
     }
 
     case Actions.API_LOADING: {
-      return {...state, isLoading: true};
+      return {...state, isLoading: action.payload || true};
     }
 
     default: {
