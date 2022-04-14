@@ -6,6 +6,7 @@ import {Route, Routes} from 'react-router-dom';
 import {PhotosList} from './views/photosList';
 import {PhotoDetail} from './views/photoDetail';
 
+
 export interface AppState {
   photoResponse: PhotoResponse;
   isLoading: boolean;
